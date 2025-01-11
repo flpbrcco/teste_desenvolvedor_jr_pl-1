@@ -7,7 +7,7 @@ class LLMService:
         self.llm = OpenAI(
             temperature = 0.5,
             top_p = 0.7,
-            api_key = "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",  # type: ignore
+            api_key = "HF_KEY",  # type: ignore
             base_url = "https://api-inference.huggingface.co/models/Qwen/Qwen2.5-72B-Instruct/v1",
         )
 
