@@ -1,6 +1,8 @@
+/* Implementa a lógica de armazenamento de tarefas */
 interface Task {
   id: number;
   text: string;
+  lang: string;
   summary: string | null;
 }
 
@@ -8,11 +10,12 @@ export class TasksRepository {
   private tasks: Task[] = [];
   private currentId: number = 1;
 
-  createTask(text: string): Task {
+  createTask(text: string, lang:string): Task {
     const task: Task = {
       id: this.currentId++,
       text,
-      summary: null
+      lang,
+      summary: null,
     };
     this.tasks.push(task);
     return task;
@@ -33,5 +36,14 @@ export class TasksRepository {
 
   getAllTasks(): Task[] {
     return this.tasks;
+  }
+
+  deleteTask(id: number): boolean {
+    const taskIndex = this.tasks.findIndex(t => t.id === id);
+    if (taskIndex > -1) {
+      this.tasks.splice(taskIndex, 1);
+      return true;
+    }
+    return false;
   }
 }

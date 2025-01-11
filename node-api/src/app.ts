@@ -1,3 +1,4 @@
+/* Ponto de entrada da aplicação */
 import express, { Application } from 'express';
 import tasksRoutes from './routes/tasksRoutes';
 
